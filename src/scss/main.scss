@@ -1,0 +1,25 @@
+
+@import 'core/reset';
+@import 'layout/form';
+@import 'layout/characters';
+@import 'layout/favourites';
+@import 'layout/cards';
+
+*{
+    box-sizing: border-box;
+}
+
+.main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    @media all and (min-width: 768px){
+        grid-template-columns: 1fr 4fr;
+    }
+}
+
+.hidden{
+    display: none;
+}

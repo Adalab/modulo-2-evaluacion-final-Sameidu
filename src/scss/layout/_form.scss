@@ -1,0 +1,16 @@
+.header{
+    display: flex;
+    background-image: url(../images/header.jpg);
+    height: 420px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    justify-content: center;
+    align-items: flex-end;
+    &_form{
+        padding: 15px 30px 15px 30px;
+        transform: none;
+        opacity: 80%;
+        background-color: white;
+    }
+}

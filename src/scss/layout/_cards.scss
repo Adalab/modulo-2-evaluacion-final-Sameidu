@@ -1,0 +1,32 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    border: black 1px solid;
+    border-radius: 5px;
+    margin-top: 10px;
+    &_article{
+        background-color: rgb(125, 126, 102);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &-img{
+            object-fit: cover;
+            height: 150px;
+            width: 100px;
+            margin: 10px 10px 10px 10px;
+        }
+        &-name{
+            font-size: 20px;
+            padding: 10px;
+        }
+        &-status{
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+    }
+}
+
+.fav{
+    background-color: rgb(66, 79, 65);
+}

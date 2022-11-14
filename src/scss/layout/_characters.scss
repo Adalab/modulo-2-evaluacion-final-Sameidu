@@ -1,0 +1,22 @@
+.characters{
+    order: 1;
+    margin-top: 20px;
+    &_title{
+        display: flex;
+        font-size: 28px;
+        color: yellowgreen;
+        font-weight: 700;
+        justify-content: center;
+    }
+    &_list{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 15px;
+        @media all and (min-width: 768px){
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        @media all and (min-width: 1300px){
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        }
+    }
+}

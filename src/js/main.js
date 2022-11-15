@@ -7,6 +7,7 @@ const searchInput = document.querySelector(".js_form_input");
 const searchBtn = document.querySelector(".js_form_button");
 const form = document.querySelector(".js-form");
 const charactersList = document.querySelector(".js_characters_list");
+const favouriteSection = document.querySelector(".js-favourite");
 const favoutitesList = document.querySelector(".js_favourite_list");
 const resetBtn = document.querySelector(".js-remove");
 
@@ -26,7 +27,7 @@ function renderOneCharacter(oneCharacter){
         classFav = "fav";
     }
 
-    let html = `<li class="card"> <article class="js_card_article ${classFav} card_article" id="${oneCharacter.char_id}">
+    let html = `<li class="card"> <article class="js_card_article card_article ${classFav}" id="${oneCharacter.char_id}">
     <img class="card_article-img"src="${oneCharacter.img}">
      <h2 class="card_article-name">${oneCharacter.name}</h2>
      <p class="card_article-status">${oneCharacter.status}</p>
@@ -53,6 +54,13 @@ function renderAllCharacters(character) {
     for (let i = 0; i < listFavourites.length; i++) {
       html += renderOneCharacter(listFavourites[i]);
     }
+
+/*  Aparece o se esconde Favoritos (No lo  activo por falta de maquetación) ;
+    if(listFavourites <= 0){
+      favouriteSection.classList.add('hidden');
+    } else {
+      favouriteSection.classList.remove('hidden');
+    }*/
   
     favoutitesList.innerHTML = html;
   }
@@ -85,6 +93,21 @@ function renderAllCharacters(character) {
     renderFavouritesCharacters();
   }
 
+  function resetFav(){
+    listFavourites= [];
+    localStorage.removeItem('fav');
+    const favCharacter = document.querySelectorAll('.js_card_article');
+    for(const article of favCharacter){
+      article.classList.remove('fav');
+    }
+    renderFavouritesCharacters();
+    renderAllCharacters();
+  }
+
+  // Eventos
+  
+  resetBtn.addEventListener(`click`, resetFav);
+
   form.addEventListener(`submit`, (event) => {
     event.preventDefault();
   });
@@ -98,12 +121,6 @@ function renderAllCharacters(character) {
   
     renderAllCharacters(filteredCharacters);
   });
-
-
-  resetBtn.addEventListener(`click`, (event) => {
-    event.preventDefault();
-  });
-
 
 
 // Codigo que se ejecuta cuando carga la pagina

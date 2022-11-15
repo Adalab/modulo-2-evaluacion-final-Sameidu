@@ -1,8 +1,6 @@
 .card {
     display: flex;
     flex-direction: column;
-    border: black 1px solid;
-    border-radius: 5px;
     margin-top: 10px;
     &_article{
         background-color: rgb(125, 126, 102);
@@ -10,6 +8,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         &-img{
             object-fit: cover;
             height: 150px;

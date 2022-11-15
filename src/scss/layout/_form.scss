@@ -8,9 +8,21 @@
     justify-content: center;
     align-items: flex-end;
     &_form{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         padding: 15px 30px 15px 30px;
         transform: none;
         opacity: 80%;
         background-color: white;
+        transform: translateY(50%);
+        &-input{
+            border-style: none;
+        }
+        &-button{
+            background-color: rgb(125, 126, 102);
+            border-style: none;
+            padding: 10px;
+            border-radius: 5px;
+            margin-left: 15px;
+        }
     }
 }

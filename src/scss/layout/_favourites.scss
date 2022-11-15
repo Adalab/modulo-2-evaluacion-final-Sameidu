@@ -1,10 +1,18 @@
 .favourite{
-margin-top: 20px;
+margin-top: 50px;
     &_title{
         display: flex;
         justify-content: center;
         font-size: 28px;
         font-weight: 700;
-        color: yellowgreen;
+        color:  rgb(66, 79, 65);
+    }
+    &_remove{
+        margin-top: 20px;
+        background-color: black;
+        color: white;
+        border-style: none;
+        border-radius: 5px;
+        padding: 10px;
     }
 }

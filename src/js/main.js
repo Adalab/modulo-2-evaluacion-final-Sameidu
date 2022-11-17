@@ -10,6 +10,7 @@ const charactersList = document.querySelector(".js_characters_list");
 const favouriteSection = document.querySelector(".js-favourite");
 const favoutitesList = document.querySelector(".js_favourite_list");
 const resetBtn = document.querySelector(".js-remove");
+const favBtn = document.querySelector(".js-numberFav");
 
 let listCharacters = [];
 let listFavourites = [];
@@ -27,9 +28,19 @@ function renderOneCharacter(oneCharacter){
         classFav = "fav";
     }
 
+    let classSuper = "";
+
+    if(oneCharacter.appearance.length === 5){
+      classSuper = "";
+    } else {
+      classSuper = "hidden";
+    }
+
     let html = `<li class="card"> <article class="js_card_article card_article ${classFav}" id="${oneCharacter.char_id}">
     <img class="card_article-img"src="${oneCharacter.img}">
      <h2 class="card_article-name">${oneCharacter.name}</h2>
+     <p class="js-appe">${oneCharacter.appearance}</p>
+     <p class="${classSuper}">Super</p>
      <p class="card_article-status">${oneCharacter.status}</p>
      </article></li>`;
     
@@ -96,17 +107,22 @@ function renderAllCharacters(character) {
   function resetFav(){
     listFavourites= [];
     localStorage.removeItem('fav');
-    const favCharacter = document.querySelectorAll('.js_card_article');
-    for(const article of favCharacter){
-      article.classList.remove('fav');
-    }
+    // const favCharacter = document.querySelectorAll('.js_card_article');
+    // for(const article of favCharacter){
+    //   article.classList.remove('fav');
+    // }
     renderFavouritesCharacters();
-    renderAllCharacters();
+    renderAllCharacters(listCharacters);
   }
 
   // Eventos
   
   resetBtn.addEventListener(`click`, resetFav);
+
+  favBtn.addEventListener("click", (event) => {
+    event.preventDefault;
+    console.log(`Tienes un total de ${listFavourites.length}`);
+  });
 
   form.addEventListener(`submit`, (event) => {
     event.preventDefault();
@@ -136,7 +152,6 @@ fetch('https://breakingbadapi.com/api/characters')
 
 const savedFavourites = JSON.parse(localStorage.getItem('fav'));
 
-console.log(savedFavourites);
 
 if (savedFavourites !== null) {
   listFavourites = savedFavourites;
